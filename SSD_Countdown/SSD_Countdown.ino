@@ -27,7 +27,7 @@ Program for Seven Segment Display - 2 Digits countdown
 (copywrite) © Poornamith
 the PAH inv
 created: 16-02-2016
-revised: 16-02-2016
+revised: 19-02-2016
 www.poornamith.azurewebsites.net
 ===================================================================================
 */
@@ -66,18 +66,19 @@ void loop() {
    *  so we display one SSD for 10ms and other for 10ms.
    */
    
+   //get the current number of milliseconds since the Arduino board began running the current program.
+   //used to make a loop  progamatically
   currentMillis = millis();
 
+  //loop: counts upto 99 
   for (int i = 0; i < 100; i++) {
 
     //this is a loop of delay(1000);
     previousMillis = millis() + 1000;
-    Serial.print("Speed: ");
-    Serial.println(i);
-
     while ( currentMillis <= previousMillis) {
       currentMillis = millis();
 
+      //divide the number in to two parts
       dig1 = i % 10;
       dig0 = i / 10;
       
